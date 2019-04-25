@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Resources with nested structure · Rest Hooks</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Say you have a foreignkey author, and an array of foreign keys to contributors.&lt;/p&gt;
 "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Resources with nested structure · Rest Hooks"/><meta property="og:type" content="website"/><meta property="og:url" content="https://resthooks.io/"/><meta property="og:description" content="&lt;p&gt;Say you have a foreignkey author, and an array of foreign keys to contributors.&lt;/p&gt;
-"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script>
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -63,52 +63,52 @@
 These should be the primary keys of the entities we care about.</p>
 <p>Next we'll need to extend the schema definition provided by <code>getEntitySchema()</code>.</p>
 <h4><a class="anchor" aria-hidden="true" id="resources-articleresourcets"></a><a href="#resources-articleresourcets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>resources/ArticleResource.ts</code></h4>
-<pre><code class="hljs css language-tsx"><span class="hljs-keyword">import</span> { <span class="hljs-type">Resource</span> } from <span class="hljs-symbol">'rest</span>-hooks';
-<span class="hljs-keyword">import</span> { <span class="hljs-type">UserResource</span> } from <span class="hljs-symbol">'resource</span>s';
+<pre><code class="hljs css language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Resource <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'rest-hooks'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> UserResource <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'resources'</span><span class="token punctuation">;</span>
 
-export <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ArticleResource</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Resource</span> </span>{
-  readonly id: number | <span class="hljs-literal">null</span> = <span class="hljs-literal">null</span>;
-  readonly content: string = '';
-  readonly author: number | <span class="hljs-literal">null</span> = <span class="hljs-literal">null</span>;
-  readonly contributors: number[] = [];
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">ArticleResource</span> <span class="token keyword">extends</span> <span class="token class-name">Resource</span> <span class="token punctuation">{</span>
+  <span class="token keyword">readonly</span> id<span class="token punctuation">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">readonly</span> content<span class="token punctuation">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token keyword">readonly</span> author<span class="token punctuation">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">readonly</span> contributors<span class="token punctuation">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-  pk() {
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.id;
-  }
-  static urlRoot = <span class="hljs-symbol">'http</span>:<span class="hljs-comment">//test.com/article/';</span>
+  <span class="token function">pk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">static</span> urlRoot <span class="token operator">=</span> <span class="token string">'http://test.com/article/'</span><span class="token punctuation">;</span>
 
-  <span class="hljs-comment">// operative method!</span>
-  static getEntitySchema&lt;<span class="hljs-type">T</span> <span class="hljs-keyword">extends</span> typeof <span class="hljs-type">Resource</span>&gt;(<span class="hljs-keyword">this</span>: <span class="hljs-type">T</span>) {
-    const schema = <span class="hljs-keyword">super</span>.getEntitySchema();
-    schema.define({
-      author: <span class="hljs-type">UserResource</span>.getEntitySchema(),
-      contributors: [<span class="hljs-type">UserResource</span>.getEntitySchema()],
-    });
-    <span class="hljs-keyword">return</span> schema;
-  }
-}
+  <span class="token comment">// operative method!</span>
+  <span class="token keyword">static</span> getEntitySchema<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">T</span></span> <span class="token attr-name">extends</span> <span class="token attr-name">typeof</span> <span class="token attr-name">Resource</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">:</span> <span class="token constant">T</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> schema <span class="token operator">=</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getEntitySchema</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    schema<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      author<span class="token punctuation">:</span> UserResource<span class="token punctuation">.</span><span class="token function">getEntitySchema</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      contributors<span class="token punctuation">:</span> <span class="token punctuation">[</span>UserResource<span class="token punctuation">.</span><span class="token function">getEntitySchema</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> schema<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>Upon fetching the nested items will end up in the cache so they can be retrieved with <a href="/docs/api/useCache">useCache()</a></p>
 <h4><a class="anchor" aria-hidden="true" id="articlelisttsx"></a><a href="#articlelisttsx" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ArticleList.tsx</code></h4>
-<pre><code class="hljs css language-tsx"><span class="hljs-keyword">import</span> { useResource } from <span class="hljs-string">'rest-hooks'</span>;
-<span class="hljs-keyword">import</span> ArticleResource from <span class="hljs-string">'resources/ArticleResource'</span>;
+<pre><code class="hljs css language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> useResource <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'rest-hooks'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ArticleResource <span class="token keyword">from</span> <span class="token string">'resources/ArticleResource'</span><span class="token punctuation">;</span>
 
-export <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> ArticleList({<span class="hljs-built_in"> id</span> }: {<span class="hljs-built_in"> id</span>:<span class="hljs-built_in"> number</span> }) {
-  const articles = useResource(ArticleResource.listRequest(), {<span class="hljs-built_in"> id</span> });
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">ArticleList</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> id <span class="token punctuation">}</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> id<span class="token punctuation">:</span> <span class="token builtin">number</span> <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> articles <span class="token operator">=</span> <span class="token function">useResource</span><span class="token punctuation">(</span>ArticleResource<span class="token punctuation">.</span><span class="token function">listRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> id <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">React.Fragment</span>&gt;</span>
-      </span><span class="xquery">{articles.<span class="hljs-keyword">map</span>(article =&gt; (
-        &lt;ArticleInline<span class="hljs-built_in"> key</span>={article.pk()}</span><span class="xml"> article=</span><span class="xquery">{article}</span><span class="xml"> /&gt;
-      ))}
-    <span class="hljs-tag">&lt;/<span class="hljs-name">React.Fragment</span>&gt;</span></span>
-  );
-}
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">React.Fragment</span></span><span class="token punctuation">></span></span>
+      <span class="token punctuation">{</span>articles<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">article</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">ArticleInline</span></span> <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>article<span class="token punctuation">.</span><span class="token function">pk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token attr-name">article</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>article<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
+      <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">React.Fragment</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">function</span> ArticleInline({ article }: { article: ArticleResource }) {
-  const author = useCache(UserResource.singleRequest(), {<span class="hljs-built_in"> id</span>: article.author });
-  // <span class="hljs-keyword">some</span> jsx here
-}
+<span class="token keyword">function</span> <span class="token function">ArticleInline</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> article <span class="token punctuation">}</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> article<span class="token punctuation">:</span> ArticleResource <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> author <span class="token operator">=</span> <span class="token function">useCache</span><span class="token punctuation">(</span>UserResource<span class="token punctuation">.</span><span class="token function">singleRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> id<span class="token punctuation">:</span> article<span class="token punctuation">.</span>author <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// some jsx here</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/guides/resource-lifetime"><span class="arrow-prev">← </span><span>Custom cache lifetime</span></a><a class="docs-next button" href="/docs/guides/rpc"><span>Cross-resource multi-update RPC (dealing with side-effects)</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"></a><div><h5>Docs</h5><a href="/docs/en/getting-started/installation">Getting Started</a><a href="/docs/en/guides/README">Guides</a><a href="/docs/en/api/README">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/rest-hooks" target="_blank" rel="noreferrer noopener">Stack Overflow</a></div><div><h5>More</h5><a href="https://github.com/coinbase/rest-hooks">GitHub</a><a class="github-button" href="https://github.com/coinbase/rest-hooks" data-icon="octicon-star" data-count-href="/coinbase/rest-hooks/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Coinbase<br/>Some icons copyright Font Awesome and Noun Project (Hassan ali, ProSymbols)</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {

@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Pagination · Rest Hooks</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;A common way APIs deal with pagination is the list view will return an object with both pagination information&lt;/p&gt;
 "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Pagination · Rest Hooks"/><meta property="og:type" content="website"/><meta property="og:url" content="https://resthooks.io/"/><meta property="og:description" content="&lt;p&gt;A common way APIs deal with pagination is the list view will return an object with both pagination information&lt;/p&gt;
-"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script>
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -61,24 +61,24 @@
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Pagination</h1></header><article><div><span><p>A common way APIs deal with pagination is the list view will return an object with both pagination information
 and the Array of results as another member.</p>
 <p><code>GET http://test.com/article/page=abcd</code></p>
-<pre><code class="hljs css language-json">{
-  <span class="hljs-attr">"nextPage"</span>: <span class="hljs-literal">null</span>,
-  <span class="hljs-attr">"prevPage"</span>: <span class="hljs-string">"http://test.com/article/page=aedcba"</span>,
-  <span class="hljs-attr">"results"</span>: [
-    {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-number">5</span>,
-      <span class="hljs-attr">"content"</span>: <span class="hljs-string">"have a merry christmas"</span>,
-      <span class="hljs-attr">"author"</span>: <span class="hljs-number">2</span>,
-      <span class="hljs-attr">"contributors"</span>: []
-    },
-    {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-number">532</span>,
-      <span class="hljs-attr">"content"</span>: <span class="hljs-string">"never again"</span>,
-      <span class="hljs-attr">"author"</span>: <span class="hljs-number">23</span>,
-      <span class="hljs-attr">"contributors"</span>: [<span class="hljs-number">5</span>]
-    }
-  ]
-}
+<pre><code class="hljs css language-json"><span class="token punctuation">{</span>
+  <span class="token property">"nextPage"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+  <span class="token property">"prevPage"</span><span class="token operator">:</span> <span class="token string">"http://test.com/article/page=aedcba"</span><span class="token punctuation">,</span>
+  <span class="token property">"results"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+      <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"have a merry christmas"</span><span class="token punctuation">,</span>
+      <span class="token property">"author"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+      <span class="token property">"contributors"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">532</span><span class="token punctuation">,</span>
+      <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"never again"</span><span class="token punctuation">,</span>
+      <span class="token property">"author"</span><span class="token operator">:</span> <span class="token number">23</span><span class="token punctuation">,</span>
+      <span class="token property">"contributors"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>To deal with our specific shape, we'll need to customize the <a href="/docs/api/requestshape">RequestShape</a> of lists to
 understand how to normalize the results (via schema).</p>
@@ -108,28 +108,28 @@ understand how to normalize the results (via schema).</p>
 <p>Now we can use <code>listRequest()</code> as normal.</p>
 <p>Additionally, we can add pagination buttons using <a href="../api/useResultCache">useResultCache</a>.</p>
 <p><code>ArticleList.tsx</code></p>
-<pre><code class="hljs css language-tsx"><span class="hljs-keyword">import</span> { useResource, useResultCache } <span class="hljs-keyword">from</span> <span class="hljs-string">'rest-hooks'</span>;
-<span class="hljs-keyword">import</span> ArticleResource <span class="hljs-keyword">from</span> <span class="hljs-string">'resources/ArticleResource'</span>;
+<pre><code class="hljs css language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> useResource<span class="token punctuation">,</span> useResultCache <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'rest-hooks'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ArticleResource <span class="token keyword">from</span> <span class="token string">'resources/ArticleResource'</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ArticleList</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">const</span> articles = useResource(ArticleResource.listRequest(), {});
-  <span class="hljs-keyword">const</span> { nextPage, prevPage } = useResultCache(
-    ArticleResource.listRequest(),
-    {},
-    { <span class="hljs-attr">nextPage</span>: <span class="hljs-string">''</span>, <span class="hljs-attr">prevPage</span>: <span class="hljs-string">''</span> }
-  );
-  <span class="hljs-keyword">return</span> (
-    &lt;&gt;
-      &lt;div&gt;
-        {articles.map(article =&gt; (
-          &lt;Article key={article.pk()} article={article} /&gt;
-        ))}
-      &lt;/div&gt;
-      {prevPage &amp;&amp; &lt;Link to={prevPage}&gt;‹ Prev&lt;/Link&gt;}
-      {nextPage &amp;&amp; &lt;Link to={nextPage}&gt;Next ›&lt;/Link&gt;}
-    &lt;/&gt;
-  );
-}
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">ArticleList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> articles <span class="token operator">=</span> <span class="token function">useResource</span><span class="token punctuation">(</span>ArticleResource<span class="token punctuation">.</span><span class="token function">listRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> nextPage<span class="token punctuation">,</span> prevPage <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useResultCache</span><span class="token punctuation">(</span>
+    ArticleResource<span class="token punctuation">.</span><span class="token function">listRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> nextPage<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span> prevPage<span class="token punctuation">:</span> <span class="token string">''</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+        <span class="token punctuation">{</span>articles<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">article</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Article</span></span> <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>article<span class="token punctuation">.</span><span class="token function">pk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token attr-name">article</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>article<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
+        <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token punctuation">{</span>prevPage <span class="token operator">&amp;&amp;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Link</span></span> <span class="token attr-name">to</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>prevPage<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>‹ Prev<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Link</span></span><span class="token punctuation">></span></span><span class="token punctuation">}</span>
+      <span class="token punctuation">{</span>nextPage <span class="token operator">&amp;&amp;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Link</span></span> <span class="token attr-name">to</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>nextPage<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>Next ›<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Link</span></span><span class="token punctuation">></span></span><span class="token punctuation">}</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/guides/fetch-multiple"><span class="arrow-prev">← </span><span>Fetching multiple resources at once</span></a><a class="docs-next button" href="/docs/guides/immutability"><span>Understanding Immutability</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"></a><div><h5>Docs</h5><a href="/docs/en/getting-started/installation">Getting Started</a><a href="/docs/en/guides/README">Guides</a><a href="/docs/en/api/README">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/rest-hooks" target="_blank" rel="noreferrer noopener">Stack Overflow</a></div><div><h5>More</h5><a href="https://github.com/coinbase/rest-hooks">GitHub</a><a class="github-button" href="https://github.com/coinbase/rest-hooks" data-icon="octicon-star" data-count-href="/coinbase/rest-hooks/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Coinbase<br/>Some icons copyright Font Awesome and Noun Project (Hassan ali, ProSymbols)</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {

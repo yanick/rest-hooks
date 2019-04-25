@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>&lt;NetworkErrorBoundary /&gt; · Rest Hooks</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Displays a fallback component when a network error happens in its subtree.&lt;/p&gt;
 "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="&lt;NetworkErrorBoundary /&gt; · Rest Hooks"/><meta property="og:type" content="website"/><meta property="og:url" content="https://resthooks.io/"/><meta property="og:description" content="&lt;p&gt;Displays a fallback component when a network error happens in its subtree.&lt;/p&gt;
-"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script>
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -59,37 +59,37 @@
               }
             });
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">&lt;NetworkErrorBoundary /&gt;</h1></header><article><div><span><p>Displays a fallback component when a network error happens in its subtree.</p>
-<pre><code class="hljs css language-typescript"><span class="token keyword">interface</span> <span class="token class-name">Props</span> <span class="token punctuation">{</span>
+<pre><code class="hljs css language-tsx"><span class="token keyword">interface</span> <span class="token class-name">Props</span> <span class="token punctuation">{</span>
   children<span class="token punctuation">:</span> React<span class="token punctuation">.</span>ReactNode<span class="token punctuation">;</span>
   fallbackComponent<span class="token punctuation">:</span> React<span class="token punctuation">.</span>ComponentType<span class="token operator">&lt;</span><span class="token punctuation">{</span>
     error<span class="token punctuation">:</span> NetworkError<span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token operator">></span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">NetworkErrorBoundary</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span><span class="token operator">&lt;</span>Props<span class="token operator">></span> <span class="token punctuation">{</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">NetworkErrorBoundary</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Props</span></span><span class="token punctuation">></span></span> <span class="token punctuation">{</span>
   <span class="token keyword">static</span> defaultProps<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     <span class="token function-variable function">fallbackComponent</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> error <span class="token punctuation">}</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> error<span class="token punctuation">:</span> NetworkError <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token constant">JSX</span><span class="token punctuation">.</span>Element<span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>Custom fallback usage example:</p>
-<pre><code class="hljs css language-typescript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<pre><code class="hljs css language-tsx"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> RestProvider<span class="token punctuation">,</span> NetworkErrorBoundary<span class="token punctuation">,</span> NetworkError <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'rest-hooks'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">ErrorPage</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> error <span class="token punctuation">}</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> error<span class="token punctuation">:</span> NetworkError <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
-    <span class="token operator">&lt;</span>div<span class="token operator">></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
       <span class="token punctuation">{</span>error<span class="token punctuation">.</span>status<span class="token punctuation">}</span> <span class="token punctuation">{</span>error<span class="token punctuation">.</span>response <span class="token operator">&amp;&amp;</span> error<span class="token punctuation">.</span>response<span class="token punctuation">.</span>statusText<span class="token punctuation">}</span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> React<span class="token punctuation">.</span>ReactElement <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
-    <span class="token operator">&lt;</span>RestProvider<span class="token operator">></span>
-      <span class="token operator">&lt;</span>NetworkErrorBoundary fallbackComponent<span class="token operator">=</span><span class="token punctuation">{</span>ErrorPage<span class="token punctuation">}</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>Router <span class="token operator">/</span><span class="token operator">></span>
-      <span class="token operator">&lt;</span><span class="token operator">/</span>NetworkErrorBoundary<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>RestProvider<span class="token operator">></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">RestProvider</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">NetworkErrorBoundary</span></span> <span class="token attr-name">fallbackComponent</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>ErrorPage<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Router</span></span> <span class="token punctuation">/></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">NetworkErrorBoundary</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">RestProvider</span></span><span class="token punctuation">></span></span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -98,17 +98,17 @@ until it is remounted. In many cases this will automatically happen upon navigat
 in the case the boundary is placed above the navigation (your <code>&lt;Route/&gt;</code> component) it will
 need to be forced to remount by setting the key.</p>
 <p>.e.g,)</p>
-<pre><code class="hljs css language-tsx"><span class="hljs-keyword">import</span> { Suspense } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> { NetworkErrorBoundary } <span class="hljs-keyword">from</span> <span class="hljs-string">'rest-hooks'</span>;
-<span class="hljs-keyword">import</span> { RouteChildrenProps } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router'</span>;
+<pre><code class="hljs css language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Suspense <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> NetworkErrorBoundary <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'rest-hooks'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> RouteChildrenProps <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-router'</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">const</span> App = <span class="hljs-function">(<span class="hljs-params">{ location }: RouteChildrenProps</span>) =&gt;</span> (
-  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Suspense</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">{</span>&lt;<span class="hljs-attr">Spinner</span> /&gt;</span>}&gt;
-    <span class="hljs-tag">&lt;<span class="hljs-name">NetworkErrorBoundary</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{location</span> &amp;&amp; <span class="hljs-attr">location.key</span>}&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">Routes</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">NetworkErrorBoundary</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">Suspense</span>&gt;</span></span>
-);
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> location <span class="token punctuation">}</span><span class="token punctuation">:</span> RouteChildrenProps</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Suspense</span></span> <span class="token attr-name">fallback</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Spinner</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">NetworkErrorBoundary</span></span> <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>location <span class="token operator">&amp;&amp;</span> location<span class="token punctuation">.</span>key<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Routes</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">NetworkErrorBoundary</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Suspense</span></span><span class="token punctuation">></span></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api/ExternalCacheProvider"><span class="arrow-prev">← </span><span class="function-name-prevnext">&lt;ExternalCacheProvider /&gt;</span></a><a class="docs-next button" href="/docs/api/Manager"><span>Manager</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"></a><div><h5>Docs</h5><a href="/docs/en/getting-started/installation">Getting Started</a><a href="/docs/en/guides/README">Guides</a><a href="/docs/en/api/README">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/rest-hooks" target="_blank" rel="noreferrer noopener">Stack Overflow</a></div><div><h5>More</h5><a href="https://github.com/coinbase/rest-hooks">GitHub</a><a class="github-button" href="https://github.com/coinbase/rest-hooks" data-icon="octicon-star" data-count-href="/coinbase/rest-hooks/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Coinbase<br/>Some icons copyright Font Awesome and Noun Project (Hassan ali, ProSymbols)</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
