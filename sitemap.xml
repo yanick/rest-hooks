@@ -4,7 +4,11 @@
 <url> <loc>https://resthooks.io/index</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/en/index" /> </url>
 <url> <loc>https://resthooks.io/users</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/en/users" /> </url>
 <url> <loc>https://resthooks.io/docs/api/ExternalCacheProvider</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/ExternalCacheProvider" /> </url>
+<url> <loc>https://resthooks.io/docs/api/makeExternalCacheProvider</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/makeExternalCacheProvider" /> </url>
+<url> <loc>https://resthooks.io/docs/api/makeRenderRestHook</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/makeRenderRestHook" /> </url>
+<url> <loc>https://resthooks.io/docs/api/makeRestProvider</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/makeRestProvider" /> </url>
 <url> <loc>https://resthooks.io/docs/api/Manager</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/Manager" /> </url>
+<url> <loc>https://resthooks.io/docs/api/MockProvider</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/MockProvider" /> </url>
 <url> <loc>https://resthooks.io/docs/api/NetworkErrorBoundary</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/NetworkErrorBoundary" /> </url>
 <url> <loc>https://resthooks.io/docs/api/NetworkManager</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/NetworkManager" /> </url>
 <url> <loc>https://resthooks.io/docs/api/PollingSubscription</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/PollingSubscription" /> </url>
@@ -15,6 +19,7 @@
 <url> <loc>https://resthooks.io/docs/api/SubscriptionManager</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/SubscriptionManager" /> </url>
 <url> <loc>https://resthooks.io/docs/api/useCache</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/useCache" /> </url>
 <url> <loc>https://resthooks.io/docs/api/useFetcher</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/useFetcher" /> </url>
+<url> <loc>https://resthooks.io/docs/api/useInvalidator</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/useInvalidator" /> </url>
 <url> <loc>https://resthooks.io/docs/api/useresource</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/useresource" /> </url>
 <url> <loc>https://resthooks.io/docs/api/useResultCache</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/useResultCache" /> </url>
 <url> <loc>https://resthooks.io/docs/api/useRetrieve</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/api/useRetrieve" /> </url>
@@ -40,5 +45,8 @@
 <url> <loc>https://resthooks.io/docs/guides/resource-lifetime</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/resource-lifetime" /> </url>
 <url> <loc>https://resthooks.io/docs/guides/resource-types</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/resource-types" /> </url>
 <url> <loc>https://resthooks.io/docs/guides/rpc</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/rpc" /> </url>
+<url> <loc>https://resthooks.io/docs/guides/storybook</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/storybook" /> </url>
+<url> <loc>https://resthooks.io/docs/guides/unit-testing-components</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/unit-testing-components" /> </url>
+<url> <loc>https://resthooks.io/docs/guides/unit-testing-hooks</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/unit-testing-hooks" /> </url>
 <url> <loc>https://resthooks.io/docs/README</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/README" /> </url>
 </urlset>
