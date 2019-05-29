@@ -73,15 +73,12 @@ errors and sends them to a fallback component you provide. Other errors will ret
 
 <span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> location <span class="token punctuation">}</span><span class="token punctuation">:</span> RouteChildrenProps</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Suspense</span></span> <span class="token attr-name">fallback</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Spinner</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">NetworkErrorBoundary</span></span> <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>location <span class="token operator">&amp;&amp;</span> location<span class="token punctuation">.</span>key<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">NetworkErrorBoundary</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Routes</span></span> <span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">NetworkErrorBoundary</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Suspense</span></span><span class="token punctuation">></span></span>
 <span class="token punctuation">)</span>
 </code></pre>
-<p>Note how we set the key based on location; this forces a remount on every location
-change so any errors will be cleared. This is only necessary as this is the route-level
-boundary, but it is placed above the route selected.</p>
 <p>Alternatively you could create your own error boundary where you might
 try dispatching the errors to another provider to use in a transient
 popup.</p>
