@@ -50,6 +50,7 @@
 <url> <loc>https://resthooks.io/docs/guides/storybook</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/storybook" /> </url>
 <url> <loc>https://resthooks.io/docs/guides/unit-testing-components</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/unit-testing-components" /> </url>
 <url> <loc>https://resthooks.io/docs/guides/unit-testing-hooks</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/unit-testing-hooks" /> </url>
+<url> <loc>https://resthooks.io/docs/guides/url</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/url" /> </url>
 <url> <loc>https://resthooks.io/docs/README</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/README" /> </url>
 <url> <loc>https://resthooks.io/docs/ROADMAP</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/ROADMAP" /> </url>
 </urlset>
