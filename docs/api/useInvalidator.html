@@ -70,7 +70,7 @@
 </code></pre>
 <p>Mostly useful for imperatively invalidating the cache, with a similar signature to
 <a href="/docs/api/useFetcher">useFetcher</a>.</p>
-<p>When used in conjunction with <a href="/docs/api/requestshape#invalidifstale-boolean">invalidIfStale</a>
+<p>When used in conjunction with <a href="./RequestShape.md#invalidifstale-boolean">invalidIfStale</a>
 it can force a component to re-suspend even if it has already fetched the data. Normally
 <a href="/docs/api/useresource">useResource</a> will not suspend if the data is in the cache, even if it
 is stale. By pairing this option with <code>useInvalidator</code> the component will act as though it
