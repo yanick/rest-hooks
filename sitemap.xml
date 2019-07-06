@@ -31,6 +31,7 @@
 <url> <loc>https://resthooks.io/docs/guides/class-components</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/class-components" /> </url>
 <url> <loc>https://resthooks.io/docs/guides/computed-properties</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/computed-properties" /> </url>
 <url> <loc>https://resthooks.io/docs/guides/custom-networking</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/custom-networking" /> </url>
+<url> <loc>https://resthooks.io/docs/guides/endpoints</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/endpoints" /> </url>
 <url> <loc>https://resthooks.io/docs/guides/fetch-multiple</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/fetch-multiple" /> </url>
 <url> <loc>https://resthooks.io/docs/guides/immutability</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/immutability" /> </url>
 <url> <loc>https://resthooks.io/docs/guides/jsonp</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/jsonp" /> </url>
@@ -50,6 +51,7 @@
 <url> <loc>https://resthooks.io/docs/guides/storybook</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/storybook" /> </url>
 <url> <loc>https://resthooks.io/docs/guides/unit-testing-components</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/unit-testing-components" /> </url>
 <url> <loc>https://resthooks.io/docs/guides/unit-testing-hooks</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/unit-testing-hooks" /> </url>
+<url> <loc>https://resthooks.io/docs/guides/url</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/guides/url" /> </url>
 <url> <loc>https://resthooks.io/docs/README</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/README" /> </url>
 <url> <loc>https://resthooks.io/docs/ROADMAP</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://resthooks.io/docs/ROADMAP" /> </url>
 </urlset>
